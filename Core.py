@@ -1,6 +1,6 @@
 
 def create_csv(list):
-    with open("Song List.csv","w",encoding='utf-8') as csvfile:
+    with open("Randomater_Main.csv","w",encoding='utf-8') as csvfile:
         songs = csv.writer(csvfile, delimiter = "\n")
         songs.writerows([song_list])
     print("Files added...")
@@ -40,7 +40,12 @@ def find_files():
 def get_abs_path_files():
     pass
 
-def get_file_metadata():
+def get_file_metadata(csv_dir):
+    os.chdir(csv_dir)
+    open("Randomater_Main.csv","r", encoding="utf8")
+    for row in file("Randomater_Main.csv"):
+        mutagen.File(row)
+
 
 
 
@@ -68,12 +73,40 @@ def print_list():
 
 
 if __name__ == "__main__":
-    import os, glob, csv
+    import os, glob, csv, mutagen
+    acceptable_responses = ["yes","y","no","n"]
 
-    init_cwd = os.getcwd()
-    song_list,root_dir = find_files()
-    print("Adding to list...")
-    os.chdir(init_cwd)
-    print(root_dir)
-    create_csv(song_list)
 
+    first_time = input("Is this your first time using Playlist Randomater? ").lower().strip()
+    while first_time != False:
+        saved_Override = False
+        if first_time in acceptable_responses:
+            while first_time == "yes" or first_time == "y":
+
+                csv_dir = os.getcwd()
+                song_list, root_dir = find_files()
+                print("Adding to list...")
+                os.chdir(csv_dir)
+                print(root_dir)
+                create_csv(song_list)
+                first_time = "no"
+                saved_Override = True
+                break
+
+            while first_time == "no" or first_time == "n":
+                if saved_Override == False:
+                    saved = input("Did you save your previous Randomater_Main file? ").lower().strip()
+                    if saved == "no" or saved == "n":
+                        first_time = "yes"
+                        break
+                    if saved == "yes" or saved == "y":
+                        csv_dir = input("Where did you save the Randomater_Main file? ")
+                        saved_Override = True
+                        continue
+                elif saved_Override == True:
+                    get_file_metadata(csv_dir)
+
+
+
+            else:
+                first_time = input("What was that? ")
