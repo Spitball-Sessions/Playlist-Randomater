@@ -41,11 +41,11 @@ def get_abs_path_files():
     pass
 
 def get_file_metadata(csv_dir):
+    # This doesn't work right now.  I'm not sure I can figure out why it's breaking, so I don't know if I can fix it.
     os.chdir(csv_dir)
-    open("Randomater_Main.csv","r", encoding="utf8")
-    for row in file("Randomater_Main.csv"):
-        mutagen.File(row)
-
+    title_dict = []
+    with open("Randomater_Main.csv","r", encoding = "utf8") as csvfile:
+        filereader = csv.reader(csvfile, delimiter = "\n")
 
 
 
@@ -73,7 +73,8 @@ def print_list():
 
 
 if __name__ == "__main__":
-    import os, glob, csv, mutagen
+    import os, glob, csv
+    import mutagen.mp3, mutagen.id3
     acceptable_responses = ["yes","y","no","n"]
 
 
@@ -104,7 +105,7 @@ if __name__ == "__main__":
                         saved_Override = True
                         continue
                 elif saved_Override == True:
-                    get_file_metadata(csv_dir)
+                    # get_file_metadata(csv_dir)
 
 
 
