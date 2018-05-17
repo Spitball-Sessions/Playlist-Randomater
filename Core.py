@@ -42,10 +42,22 @@ def get_abs_path_files():
 
 def get_file_metadata(csv_dir):
     # This doesn't work right now.  I'm not sure I can figure out why it's breaking, so I don't know if I can fix it.
+
+    # I think the first step is taking it slow.
+
+    #1 import the CSV as a itemized list
     os.chdir(csv_dir)
     title_dict = []
     with open("Randomater_Main.csv","r", encoding = "utf8") as csvfile:
         filereader = csv.reader(csvfile, delimiter = "\n")
+        titledict = filereader.readrows():
+        print(titledict[7])
+
+    #2 Then feed items from list back to mutagen
+
+    #3 Use mutagen to find song titles
+
+    #4 Save titles and file name to dictionary.
 
 
 
