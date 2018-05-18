@@ -139,6 +139,7 @@ def save_playlist():
 
 def move_songs_in_playlist():
     # copy all the songs on a playlist to an "upload" folder
+    # possibly do this first.  Maybe able to get id3 tags once they're all in the same folder?
     pass
 
 
