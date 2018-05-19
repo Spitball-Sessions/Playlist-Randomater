@@ -44,10 +44,9 @@ def find_files():
         for song_name in glob.iglob(check_dir + "\**\*.mp3", recursive=True):
             song_list.append(song_name)
 
-           ''' Maybe this is the solution if I can weed out songs that aren't Google supported:
-            **info_list.append(mutagen.File(song_name))** '''
-
-        print(info_list)
+        ''' Maybe this is the solution if I can weed out songs that aren't Google supported:
+        **info_list.append(mutagen.File(song_name))** 
+        print(info_list)'''
 
         # checks whether user wants to add more directories, otherwise builds and exports list
         while still_adding != "no" or "n":
@@ -108,6 +107,7 @@ def pick_random_set_of_songs(csv_dir):
     # method initialization stuff:
     os.chdir(csv_dir)
     song_list, playlist, playlist2 = ([] for i in range(3))
+    song_id3, song_names = ([] for i in range(2))
 
     # creates a usable list.
     song_list = open_csv(song_list)
@@ -116,17 +116,28 @@ def pick_random_set_of_songs(csv_dir):
 
     # There has to be a better solution for this.
     # Right now, this creates the playlist as an array, then converts the array to a list of strings, then removes the \n from each string in the list.
-    for i in range(int(playlist_length)):
-        playlist.append(random.choice(song_list))
-    for i in range(int(playlist_length)):
-        playlist2.append(playlist[i-1][0])
-    playlist.clear()
-    for i in range(int(playlist_length)):
-        playlist.append(playlist2[i].rstrip())
+    while song_id3 == []:
+        for songs in range(int(playlist_length)):
+            playlist.append(random.choice(song_list))
+        for songs in range(int(playlist_length)):
+            playlist2.append(playlist[songs][0])
+        playlist.clear()
+        for songs in range(int(playlist_length)):
+            playlist.append(playlist2[songs].rstrip())
+        while 0 == False:
+            for songs in range(len(playlist)):
+                song_id3.append(mutagen.File(playlist[songs]).tags)
+                try:
+                    v = song_id3[songs].get("TIT2")
+                    if v == None:
+                        song_names.append(playlist[songs])
+                    else:
+                        song_names.append(str(song_id3[songs].get("TIT2")))
+                except AttributeError:
+                    song_names.append(playlist[songs])
+            break
 
-
-    print(playlist)
-    return playlist
+    return playlist, song_names
 
 def make_playlist():
 
@@ -184,9 +195,8 @@ if __name__ == "__main__":
                         continue
                 # Once there's a file, this builds the playlists and does all the rest of that.
                 elif saved_Override == True:
-                    # get_file_metadata(csv_dir)
-                    my_playlist = pick_random_set_of_songs(csv_dir)
-                    quit("That's all folks")
+                    my_playlist, song_titles = pick_random_set_of_songs(csv_dir)
+                    quit("You Ain't Nothing")
 
 
             else:

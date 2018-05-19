@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Core.py" line="62" />
+    <bookmark url="file://$PROJECT_DIR$/Core.py" line="61" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="595904fe-a3e8-4f88-8eb7-2f054c005900" name="Default" comment="ensures always able to open csv file.">
-      <change beforePath="$PROJECT_DIR$/.idea/Playlist Randomator.iml" afterPath="$PROJECT_DIR$/.idea/Playlist Randomator.iml" />
+    <list default="true" id="595904fe-a3e8-4f88-8eb7-2f054c005900" name="Default" comment="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Core.py" afterPath="$PROJECT_DIR$/Core.py" />
     </list>
@@ -21,13 +20,34 @@
       <file leaf-file-name="Core.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="187" column="67" lean-forward="true" selection-start-line="187" selection-start-column="67" selection-end-line="187" selection-end-column="67" />
+            <state relative-caret-position="380">
+              <caret line="197" column="60" lean-forward="false" selection-start-line="197" selection-start-column="60" selection-end-line="197" selection-end-column="60" />
               <folding>
                 <element signature="e#66#446#0" expanded="false" />
-                <element signature="e#477#839#0" expanded="false" />
-                <element signature="e#864#2806#0" expanded="false" />
-                <element signature="e#2845#3668#1" expanded="false" />
+                <element signature="e#864#2798#0" expanded="false" />
+                <element signature="e#2837#3660#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_file.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_file.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-980">
+              <caret line="207" column="4" lean-forward="false" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+              <folding>
+                <element signature="e#727#765#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,7 +56,7 @@
       <file leaf-file-name="_util.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="1088">
               <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding />
             </state>
@@ -91,7 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -103,6 +122,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526525215174</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now.">
+      <created>1526615310922</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1526615310922</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -257,7 +284,8 @@
     <MESSAGE value="Prints each song to a different line in the .csv file" />
     <MESSAGE value="ensures always able to open csv file." />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -269,19 +297,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Core.py</url>
-          <line>114</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Core.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="10" />
+          <line>126</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="11" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -292,9 +315,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -313,9 +335,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -334,9 +355,28 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#66#446#0" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -347,9 +387,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -360,9 +399,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -373,9 +411,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -386,9 +423,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -417,7 +453,7 @@
     <entry file="file://$PROJECT_DIR$/Test.csv" />
     <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="1088">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding />
         </state>
@@ -427,19 +463,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="322" column="0" lean-forward="false" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="6" lean-forward="false" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+          <folding>
+            <element signature="e#727#765#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python/Python36/Lib/site-packages/mutagen/_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-980">
+          <caret line="207" column="4" lean-forward="false" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="187" column="67" lean-forward="true" selection-start-line="187" selection-start-column="67" selection-end-line="187" selection-end-column="67" />
+        <state relative-caret-position="380">
+          <caret line="197" column="60" lean-forward="false" selection-start-line="197" selection-start-column="60" selection-end-line="197" selection-end-column="60" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#477#839#0" expanded="false" />
-            <element signature="e#864#2806#0" expanded="false" />
-            <element signature="e#2845#3668#1" expanded="false" />
+            <element signature="e#864#2798#0" expanded="false" />
+            <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
       </provider>
