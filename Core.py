@@ -104,19 +104,19 @@ def pick_random_set_of_songs(csv_dir):
     :return: randomized playlist
     '''
 
-    # method initialization stuff:
+    # method initialization:
     os.chdir(csv_dir)
     song_list, playlist, playlist2 = ([] for i in range(3))
-    song_id3, song_names = ([] for i in range(2))
 
-    # creates a usable list.
+
+    # Creates a mem-stored list from the CSV file.
     song_list = open_csv(song_list)
 
     playlist_length = input("How many songs would you like in your playlist? ")
 
-    # There has to be a better solution for this.
-    # Right now, this creates the playlist as an array, then converts the array to a list of strings, then removes the \n from each string in the list.
-    while song_id3 == []:
+    # This creates the playlist as an array, then converts the array to a list of strings, then removes the \n from each string in the list.
+    # There's definitely a better solution for this.
+    while playlist2 == []:
         for songs in range(int(playlist_length)):
             playlist.append(random.choice(song_list))
         for songs in range(int(playlist_length)):
@@ -124,24 +124,40 @@ def pick_random_set_of_songs(csv_dir):
         playlist.clear()
         for songs in range(int(playlist_length)):
             playlist.append(playlist2[songs].rstrip())
-        while 0 == False:
-            for songs in range(len(playlist)):
-                song_id3.append(mutagen.File(playlist[songs]).tags)
-                try:
-                    v = song_id3[songs].get("TIT2")
-                    if v == None:
-                        song_names.append(playlist[songs])
-                    else:
-                        song_names.append(str(song_id3[songs].get("TIT2")))
-                except AttributeError:
-                    song_names.append(playlist[songs])
-            break
+        song_names_in_playlist(playlist)
 
-    return playlist, song_names
+    return playlist
 
-def make_playlist():
+def song_names_in_playlist(playlist):
+    '''
+    This tells the user what songs are going to be put onto the playlist.
+    :param playlist: This is the randomly generated playlist
+    :return: returns no value.
+    '''
+    # Method Initialization:
+    song_id3, song_names = ([] for i in range(2))
 
-    pass
+    for songs in range(len(playlist)):
+        # Gets all the tags for a song and adds them to a dict - 1 dict/song
+        song_id3.append(mutagen.File(playlist[songs]).tags)
+        # If the song has a title, adds it.  Otherwise, adds the song's filename.  At some point, I should regex to rem: \\'s
+        try:
+            v = song_id3[songs].get("TIT2")
+            if v == None:
+                song_names.append(playlist[songs])
+            else:
+                song_names.append(str(song_id3[songs].get("TIT2")))
+        except AttributeError:
+            song_names.append(playlist[songs])
+
+    print("This playlist will have the following songs:")
+    for x in range(len(song_names)):
+        print(str(x + 1) + " " + str(song_names[x]))
+
+    ''' I would, at some point, like this to let the user remove songs from the proposed playlist and have new ones add
+        at random.  For now, this will have to suffice.'''
+
+    return
 
 
 def save_playlist():
@@ -191,12 +207,16 @@ if __name__ == "__main__":
                         first_time = "yes"
                         break
                     if saved == "yes" or saved == "y":
-                        csv_dir = input("Where did you save the Randomater_Main file? ")
-                        saved_Override = True
-                        continue
+                            csv_dir = input("Where did you save the Randomater_Main file? ")
+                            if os.path.exists(csv_dir +"\\" + "Randomater_Main.csv") == True:
+                                saved_Override = True
+                                continue
+                            else:
+                                csv_dir = input("Not Found.  Where did you save the file? ")
+
                 # Once there's a file, this builds the playlists and does all the rest of that.
                 elif saved_Override == True:
-                    my_playlist, song_titles = pick_random_set_of_songs(csv_dir)
+                    my_playlist = pick_random_set_of_songs(csv_dir)
                     quit("You Ain't Nothing")
 
 

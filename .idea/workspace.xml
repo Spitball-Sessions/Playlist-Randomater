@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Core.py" line="61" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="595904fe-a3e8-4f88-8eb7-2f054c005900" name="Default" comment="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now.">
+    <list default="true" id="595904fe-a3e8-4f88-8eb7-2f054c005900" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Core.py" afterPath="$PROJECT_DIR$/Core.py" />
     </list>
@@ -20,13 +20,22 @@
       <file leaf-file-name="Core.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="197" column="60" lean-forward="false" selection-start-line="197" selection-start-column="60" selection-end-line="197" selection-end-column="60" />
+            <state relative-caret-position="-207">
+              <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="19" />
               <folding>
                 <element signature="e#66#446#0" expanded="false" />
-                <element signature="e#864#2798#0" expanded="false" />
                 <element signature="e#2837#3660#1" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,7 +146,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -221,19 +230,25 @@
       <option name="project" value="LOCAL" />
       <updated>1526615310922</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement id3 Title return for songs chosen for playlist.">
+      <created>1526695669824</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1526695669824</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="0" y="0" width="434" height="856" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -285,7 +300,8 @@
     <MESSAGE value="ensures always able to open csv file." />
     <MESSAGE value="." />
     <MESSAGE value="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Impliment 2 major features:&#10;&#10;* Add &quot;randomized playlist&quot; method functionality&#10;* Create function for opening csv file as list.&#10; &#10;# Comment most of the code I've written so far.&#10;&#10;* ID3 tag reading is back-burnered for now." />
+    <MESSAGE value="Implement id3 Title return for songs chosen for playlist." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement id3 Title return for songs chosen for playlist." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -297,14 +313,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Core.py</url>
-          <line>126</line>
-          <option name="timeStamp" value="15" />
+          <line>114</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core.py</url>
+          <line>202</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="16" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -315,7 +336,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -335,7 +355,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -355,7 +374,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -375,7 +393,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -387,7 +404,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -399,7 +415,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -411,7 +426,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -423,7 +437,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
@@ -492,13 +505,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="197" column="60" lean-forward="false" selection-start-line="197" selection-start-column="60" selection-end-line="197" selection-end-column="60" />
+        <state relative-caret-position="-207">
+          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="19" />
           <folding>
             <element signature="e#66#446#0" expanded="false" />
-            <element signature="e#864#2798#0" expanded="false" />
             <element signature="e#2837#3660#1" expanded="false" />
           </folding>
         </state>
