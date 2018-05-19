@@ -65,10 +65,6 @@ def find_files():
                 print("Please try that again. ")
                 continue
 
-
-def get_abs_path_files():
-    pass
-
 '''
 def get_file_metadata(csv_dir):
     # This doesn't work right now.  I'm not sure I can figure out why it's breaking, so I don't know if I can fix it.
@@ -108,9 +104,7 @@ def pick_random_set_of_songs(csv_dir):
     os.chdir(csv_dir)
     song_list, playlist, playlist2 = ([] for i in range(3))
 
-
-    # Creates a mem-stored list from the CSV file.
-    song_list = open_csv(song_list)
+    song_list = open_csv(song_list) # Creates a mem-stored list from the CSV file.
 
     playlist_length = input("How many songs would you like in your playlist? ")
 
@@ -144,7 +138,7 @@ def song_names_in_playlist(playlist):
         try:
             v = song_id3[songs].get("TIT2")
             if v == None:
-                song_names.append(playlist[songs])
+                song_names.append(str(playlist[songs]).lstrip("f:\\*\\*\\"))
             else:
                 song_names.append(str(song_id3[songs].get("TIT2")))
         except AttributeError:
@@ -159,38 +153,110 @@ def song_names_in_playlist(playlist):
 
     return
 
+def folder_empty(folder):
+    '''
+    This clears the "To Copy" folder so that new songs can be added.
+    :param folder: currently, the "To Copy" folder.  Eventually, may be user definable.
+    :return: no variable returned.
+    '''
+    song_del = []  # initialization
+    for i in glob.iglob(folder + "\*.mp3", recursive=True):
+        song_del.append(i)
+    for i in glob.iglob(folder + "\*.m3u", recursive=True):
+        song_del.append(i)
+    for i in song_del:
+        os.remove(i)
+    return
+
+def move_songs_to_folder(playlist):
+    '''
+    Copies songs from their original location to the "To Copy" file inside program folder to ensure they're easy to copy.
+    :param playlist: This is the playlist which we want to copy the files of.
+    :return: No variable returned
+    '''
+
+    copy_folder = make_playlist_directory()
+    x = input("Would you like to empty the existing folder? ").lower().rstrip()
+    if x == "y" or x == "yes":
+        folder_empty(copy_folder)
+    else:
+        archive()
+        folder_empty(copy_folder) # Relocate inside Archive command?
+    for i in range(len(playlist)):
+        shutil.copy2(playlist[i],copy_folder)
+    os.chdir(copy_folder)
+    save_playlist()
 
 def save_playlist():
-    pass
+    '''
+    Takes files in the "To Copy" folder, and adds them to the .m3u folder by their relative path.
+    :return:
+    '''
+    m3u = []
+    for i in glob.iglob(os.getcwd() + "\*.mp3", recursive=True):
+        m3u.append(".\\" + str(i.lstrip("E:\\Programming\\Playlist Randomator\\Playlist Folder")))
+    a = input("What would you like to call your playlist? ")
+    if a == "":
+        playlist_name = "playlist.m3u"
+    else:
+        playlist_name = (a + ".m3u")
+    with open(playlist_name,"w",encoding='utf-8') as m3u_file:
+        for i in range(len(m3u)):
+            m3u_file.write(m3u[i]+"\n")
 
 
-def move_songs_in_playlist():
-    # copy all the songs on a playlist to an "upload" folder
-    # possibly do this first.  Maybe able to get id3 tags once they're all in the same folder?
-    pass
+    print("Playlist saved...")
 
+def archive():
+    '''
+    This will copy files already in the "To Copy" folder to the "Archive" folder, so the user may create multiple playlists.
+    :return: No Variable Returned
+    '''
+    cwd = os.getcwd()
+    archive_folder = (cwd + "\\" + "Archive")
+    if os.path.exists(archive_folder):
+        os.chdir(archive_folder)
+    else:
+        os.makedirs(archive_folder)
+        os.chdir(archive_folder)
+    for i in glob.iglob(cwd + "\*.mp3", recursive=True):
+        shutil.copy2(i, archive_folder)
+    for i in glob.iglob(cwd + "\*.m3u", recursive=True):
+        shutil.copy2(i, archive_folder)
+    os.chdir(cwd)
+    return
 
-def print_list():
-    pass
+def make_playlist_directory():
+    '''
+    Makes a folder to move the playlist files to.
+    :return: folder path
+    '''
+    cwd = os.getcwd()
+    m3u_folder = (cwd + "\\" + "To Copy")
+    if os.path.exists(m3u_folder):
+        os.chdir(m3u_folder)
+    else:
+        os.makedirs(m3u_folder)
+        os.chdir(m3u_folder)
+    return m3u_folder
 
 
 if __name__ == "__main__":
     # initialization stuff:
-    import os, glob, csv, random
+    import os, glob, csv, random,shutil
     import mutagen.mp3, mutagen.id3
+
     acceptable_responses = ["yes","y","no","n"]
 
-
     first_time = input("Is this your first time using Playlist Randomater? ").lower().strip()
-    while first_time != False:
+
+    while first_time:
         # saved_override flips to True once there's an existing Randomater_Main file and the program knows where it is.
         saved_Override = False
         if first_time in acceptable_responses:
             # if this is the user's first time, or if they lost their Randomater_Main file, this builds it.
             while first_time == "yes" or first_time == "y":
-
-                # csv_dir is where the Randomater file is stored
-                csv_dir = os.getcwd()
+                csv_dir = os.getcwd() # this ensures everything goes back into the Randomater folder
                 song_list, root_dir = find_files()
                 print("Adding to list...")
                 os.chdir(csv_dir)
@@ -201,7 +267,7 @@ if __name__ == "__main__":
                 break
             # This verifies whether they have a Randomater Main and where it is.  If they do, flips saved_override to True, and kicks up to next function.
             while first_time == "no" or first_time == "n":
-                if saved_Override == False:
+                if not saved_Override:
                     saved = input("Did you save your previous Randomater_Main file? ").lower().strip()
                     if saved == "no" or saved == "n":
                         first_time = "yes"
@@ -212,11 +278,14 @@ if __name__ == "__main__":
                                 saved_Override = True
                                 continue
                             else:
-                                csv_dir = input("Not Found.  Where did you save the file? ")
-
+                                print("Not Found.")
+                                continue
                 # Once there's a file, this builds the playlists and does all the rest of that.
-                elif saved_Override == True:
+                elif saved_Override:
                     my_playlist = pick_random_set_of_songs(csv_dir)
+                    move_songs_to_folder(my_playlist)
+
+
                     quit("You Ain't Nothing")
 
 
